@@ -1,0 +1,174 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clínica NutriFit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6;
+      color: #333;
+    }
+
+
+    header {
+      background-color: #47a386;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+
+    nav {
+      background-color: #3b7a68;
+      text-align: center;
+      padding: 10px;
+    }
+
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+
+    h2 {
+      color: #3b7a68;
+    }
+
+
+    .imc-form {
+      background-color: #e1f3ee;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+
+    input[type="number"], button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+
+    footer {
+      background-color: #3b7a68;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <h1>Clínica NutriFit</h1>
+    <p></p>
+  </header>
+
+
+  <nav>
+    <a href="#presentacion">Presentación</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#consejos">Consejos</a>
+    <a href="#imc">Calculadora IMC</a>
+  </nav>
+
+
+  <section id="presentacion">
+    <h2>Presentación</h2>
+    <p>En Clínica NutriFit nos enfocamos en ayudarte a alcanzar tu bienestar físico y mental a través de una alimentación saludable, actividad física personalizada y acompañamiento profesional constante.</p>
+    <img src="descarga.jpeg">  
+  </section>
+
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Planes nutricionales personalizados</li>
+      <li>Evaluación de composición corporal</li>
+      <li>Asesoramiento en suplementación</li>
+      <li>Entrenamiento funcional y fitness</li>
+      <li>Consultas virtuales y presenciales</li>
+    </ul>
+    <img src="descarga (1).jpeg">
+  </section>
+
+
+  <section id="consejos">
+    <h2>Consejos de Vida Fitness</h2>
+    <ul>
+      <li>Hidrátate constantemente, al menos 2 litros de agua al día.</li>
+      <li>Realiza ejercicio físico al menos 3 veces por semana.</li>
+      <li>Evita el exceso de alimentos ultraprocesados.</li>
+      <li>Duerme entre 7 y 8 horas diarias para una buena recuperación.</li>
+      <li>Mantén una actitud positiva y establece metas realistas.</li>
+    </ul>
+    <img src="descarga (2).jpeg">
+  </section>
+
+
+  <section id="imc">
+    <h2>Calculadora de IMC</h2>
+    <div class="imc-form">
+      <label for="peso">Peso (kg):</label>
+      <input type="number" id="peso" placeholder="Ej. 70">
+      <label for="altura">Altura (cm):</label>
+      <input type="number" id="altura" placeholder="Ej. 170">
+      <button onclick="calcularIMC()">Calcular IMC</button>
+      <p id="resultado"></p>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>© 2025 Clínica NutriFit | Todos los derechos reservados
+                  Matias Pérez Aylin Nahomi
+    </p>
+  </footer>
+
+
+  <script>
+    function calcularIMC() {
+      const peso = parseFloat(document.getElementById("peso").value);
+      const altura = parseFloat(document.getElementById("altura").value) / 100;
+
+
+      if (!peso || !altura || altura <= 0) {
+        document.getElementById("resultado").innerText = "Por favor, ingresa valores válidos.";
+        return;
+      }
+
+
+      const imc = peso / (altura * altura);
+      let mensaje = "";
+
+
+      if (imc < 18.5) mensaje = "Bajo peso";
+      else if (imc < 24.9) mensaje = "Peso normal";
+      else if (imc < 29.9) mensaje = "Sobrepeso";
+      else mensaje = "Obesidad";
+
+
+      document.getElementById("resultado").innerText = `Tu IMC es: ${imc.toFixed(2)} (${mensaje})`;
+    }
+  </script>
+
+
+</body>
+</html>
